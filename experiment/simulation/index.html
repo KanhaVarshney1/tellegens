@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification of Tellegens Theorem</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Verification of Tellegens Theorem</h1>
+
+    <div class="main-container">
+        <div class="procedure-panel">
+            <h2>Procedure</h2>
+            <p>Allow JavaScript alerts in your browser.</p>
+            <p>Set all the resistors R1, R2, and R3, and choose any arbitrary values of V1 and V2.</p>
+
+            <h2>Experiment Part Select</h2>
+            <p><strong>Case 1</strong>: In the presence of both the sources</p>
+            <p>Select switch of S1 to Power and S2 to Power and Simulate the program from case 1 tab. Observe the power supplied in +ve and power dissipated in -ve by the elements and voltage difference from case 1 tab.</p>
+            <p><strong>Case 2</strong>: In presence of V1 only</p>
+            <p>Select switch of S1 to Power and S2 to short and Simulate the program from case 2 tab. Read the corresponding power values.</p>
+            <p><strong>Case 3</strong>: In presence of V2 only</p>
+            <p>Select switch of S1 to Short and S2 to Power and Simulate the program from case 3 tab. Read the corresponding power values.</p>
+            <p><strong>MC</strong>: Moving Coil.</p>
+            <p><strong>DPDT</strong>: Double pole Double throw.</p>
+            <p><strong>N.B.</strong>: All the resistors are in ohms.</p>
+        </div>
+
+        <div class="circuit-container">
+            <div class="calculation-panel-left">
+                <h2>Inputs & Switches</h2>
+                <div class="input-field">
+                    <label>V1:</label>
+                    <input type="number" id="v1-input" value="220" min="0" step="1" oninput="updateCircuitLabels()">V
+                </div>
+                <div class="input-field">
+                    <label>V2:</label>
+                    <input type="number" id="v2-input" value="110" min="0" step="1" oninput="updateCircuitLabels()">V
+                </div>
+                <div class="input-field">
+                    <label>R1:</label>
+                    <input type="number" id="r1-input" value="100" min="1" step="1" oninput="updateCircuitLabels()">Ω
+                </div>
+                <div class="input-field">
+                    <label>R2:</label>
+                    <input type="number" id="r2-input" value="150" min="1" step="1" oninput="updateCircuitLabels()">Ω
+                </div>
+                <div class="input-field">
+                    <label>R3:</label>
+                    <input type="number" id="r3-input" value="200" min="1" step="1" oninput="updateCircuitLabels()">Ω
+                </div>
+                <div class="switch">
+                    <label>S1:</label>
+                    <select id="s1">
+                        <option value="power">Power</option>
+                        <option value="short">Short</option>
+                        <option value="dpdt">DPDT</option>
+                    </select>
+                </div>
+                <div class="switch">
+                    <label>S2:</label>
+                    <select id="s2">
+                        <option value="power">Power</option>
+                        <option value="short">Short</option>
+                        <option value="dpdt">DPDT</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="circuit-panel">
+                <h2>Circuit Diagram</h2>
+                <img src="circuit-diagram.png" alt="Circuit Diagram">
+                <svg class="circuit-overlay">
+                    <text id="v1-label" x="17" y="297">V1: 220 V</text>
+                    <text id="v2-label" x="520" y="297">V2: 110 V</text>
+                    <text id="r1-label" x="215" y="185">R1: 100 Ω</text>
+                    <text id="r2-label" x="350" y="185">R2: 150 Ω</text>
+                    <text id="r3-label" x="246" y="290">R3: 200 Ω</text>
+                </svg>
+            </div>
+
+            <div class="calculation-panel-right">
+                <h2>Meters</h2>
+                <div class="meter">
+                    <div>Meter A1: I1</div>
+                    <svg class="meter-svg" viewBox="0 0 180 120">
+                        <circle cx="90" cy="90" r="80" fill="#f0f0f0" stroke="#333" stroke-width="3"/>
+                        <path d="M 10 90 A 80 80 0 0 1 170 90" fill="none" stroke="url(#meterGradientA)" stroke-width="15"/>
+                        <defs>
+                            <linearGradient id="meterGradientA" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ff9999"/>
+                                <stop offset="50%" stop-color="#ff4d4d"/>
+                                <stop offset="100%" stop-color="#ff9999"/>
+                            </linearGradient>
+                        </defs>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(-90 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(-45 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(0 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(45 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(90 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(-67.5 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(-22.5 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(22.5 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(67.5 90 90)"/>
+                        <text x="90" y="45" class="meter-label" transform="rotate(-90 90 90)">-5 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(-45 90 90)">-2.5 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(0 90 90)">0 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(45 90 90)">2.5 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(90 90 90)">5 A</text>
+                        <line x1="90" y1="90" x2="90" y2="30" stroke="#333" stroke-width="3" opacity="0.3" transform-origin="90 90" id="a1-needle-shadow"/>
+                        <line x1="90" y1="90" x2="90" y2="30" stroke="url(#needleGradientA)" stroke-width="2" transform-origin="90 90" id="a1-needle" filter="url(#needleGlow)"/>
+                        <defs>
+                            <linearGradient id="needleGradientA" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ff4d4d"/>
+                                <stop offset="100%" stop-color="#cc0000"/>
+                            </linearGradient>
+                            <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <circle cx="90" cy="90" r="78" fill="url(#glassGradient)" opacity="0.3"/>
+                        <defs>
+                            <radialGradient id="glassGradient">
+                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="#aaaaaa" stop-opacity="0.2"/>
+                            </radialGradient>
+                        </defs>
+                        <rect x="70" y="100" width="40" height="15" fill="#333" rx="3"/>
+                        <text x="90" y="110" class="meter-text">A1</text>
+                    </svg>
+                </div>
+                <div class="meter">
+                    <div>Meter A2: I2</div>
+                    <svg class="meter-svg" viewBox="0 0 180 120">
+                        <circle cx="90" cy="90" r="80" fill="#f0f0f0" stroke="#333" stroke-width="3"/>
+                        <path d="M 10 90 A 80 80 0 0 1 170 90" fill="none" stroke="url(#meterGradientA)" stroke-width="15"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(-90 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(-45 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(0 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(45 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(90 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(-67.5 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(-22.5 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(22.5 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(67.5 90 90)"/>
+                        <text x="90" y="45" class="meter-label" transform="rotate(-90 90 90)">-5 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(-45 90 90)">-2.5 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(0 90 90)">0 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(45 90 90)">2.5 A</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(90 90 90)">5 A</text>
+                        <line x1="90" y1="90" x2="90" y2="30" stroke="#333" stroke-width="3" opacity="0.3" transform-origin="90 90" id="a2-needle-shadow"/>
+                        <line x1="90" y1="90" x2="90" y2="30" stroke="url(#needleGradientA)" stroke-width="2" transform-origin="90 90" id="a2-needle" filter="url(#needleGlow)"/>
+                        <circle cx="90" cy="90" r="78" fill="url(#glassGradient)" opacity="0.3"/>
+                        <rect x="70" y="100" width="40" height="15" fill="#333" rx="3"/>
+                        <text x="90" y="110" class="meter-text">A2</text>
+                    </svg>
+                </div>
+                <div class="meter">
+                    <div>Meter MC: Voltage</div>
+                    <svg class="meter-svg" viewBox="0 0 180 120">
+                        <circle cx="90" cy="90" r="80" fill="#f0f0f0" stroke="#333" stroke-width="3"/>
+                        <path d="M 50 90 A 40 40 0 0 1 130 90" fill="none" stroke="url(#meterGradientV)" stroke-width="15"/>
+                        <defs>
+                            <linearGradient id="meterGradientV" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#99b3ff"/>
+                                <stop offset="50%" stop-color="#4d79ff"/>
+                                <stop offset="100%" stop-color="#99b3ff"/>
+                            </linearGradient>
+                        </defs>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(-90 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(-45 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="50" class="meter-tick" transform="rotate(0 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(-67.5 90 90)"/>
+                        <line x1="90" y1="90" x2="90" y2="60" class="meter-tick-minor" transform="rotate(-22.5 90 90)"/>
+                        <text x="90" y="45" class="meter-label" transform="rotate(-90 90 90)">0 V</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(-45 90 90)">150 V</text>
+                        <text x="90" y="45" class="meter-label" transform="rotate(0 90 90)">300 V</text>
+                        <line x1="90" y1="90" x2="90" y2="30" stroke="#333" stroke-width="3" opacity="0.3" transform-origin="90 90" id="mc-needle-shadow"/>
+                        <line x1="90" y1="90" x2="90" y2="30" stroke="url(#needleGradientV)" stroke-width="2" transform-origin="90 90" id="mc-needle" filter="url(#needleGlow)"/>
+                        <defs>
+                            <linearGradient id="needleGradientV" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#4d79ff"/>
+                                <stop offset="100%" stop-color="#0033cc"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="90" cy="90" r="78" fill="url(#glassGradient)" opacity="0.3"/>
+                        <rect x="70" y="100" width="40" height="15" fill="#333" rx="3"/>
+                        <text x="90" y="110" class="meter-text">MC</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="selectTab('case1')">Case 1</div>
+        <div class="tab" onclick="selectTab('case2')">Case 2</div>
+        <div class="tab" onclick="selectTab('case3')">Case 3</div>
+    </div>
+
+    <div class="results-panel" id="results">
+        <h2 id="results-title">In presence of both V1 and V2</h2>
+        <p id="power-equation">
+            P1(by R1) + P2(by R2) + P3(by R3) + PV1(by V1) + PV2(by V2) = result of summation: 
+            <span id="power-result">0</span>
+        </p>
+        <div class="power-values">
+            <p class="p1-display">P1(by R1): <span id="p1-value">0</span></p>
+            <p>P2(by R2): <span id="p2-value">0</span></p>
+            <p>P3(by R3): <span id="p3-value">0</span></p>
+            <p>PV1(by V1): <span id="pv1-value">0</span></p>
+            <p>PV2(by V2): <span id="pv2-value">0</span></p>
+            <p>Total Power: <span id="total-power-value">0</span></p>
+        </div>
+        <p id="switch-instruction">Select both the switches, S1 and S2 to power.</p>
+        <p><span class="watt-note">All powers are in Watt</span></p>
+        <button class="simulate-btn" onclick="simulate()">Simulate</button>
+        <button class="add-to-table-btn" id="add-to-table-btn" onclick="debouncedAddToObservationTable()">Add to Observation Table</button>
+    </div>
+
+    <div class="observation-panel">
+        <h2>Observation Table</h2>
+        <table id="observation-table">
+            <thead>
+                <tr>
+                    <th rowspan="2">SI. no.</th>
+                    <th colspan="5">In presence of both V1 and V2<br>All values are in Watt</th>
+                    <th colspan="4">In presence of V1 only<br>All values are in Watt</th>
+                    <th colspan="4">In presence of V2 only<br>All values are in Watt</th>
+                </tr>
+                <tr>
+                    <th>P1(by R1)</th>
+                    <th>P2(by R2)</th>
+                    <th>P3(by R3)</th>
+                    <th>PV1(by V1)</th>
+                    <th>PV2(by V2)</th>
+                    <th>P1(by R1)</th>
+                    <th>P2(by R2)</th>
+                    <th>P3(by R3)</th>
+                    <th>PV1(by V1)</th>
+                    <th>P1(by R1)</th>
+                    <th>P2(by R2)</th>
+                    <th>P3(by R3)</th>
+                    <th>PV2(by V2)</th>
+                </tr>
+            </thead>
+            <tbody id="observation-body">
+                <tr>
+                    <td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="print-btn-container">
+            <button class="print-btn" onclick="printPage()">Click here to print</button>
+        </div>
+    </div>
+</body>
+</html>
