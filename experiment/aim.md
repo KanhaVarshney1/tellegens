@@ -1,1 +1,1 @@
-### Aim of the experiment
+verification of TEllegen's theorem 
