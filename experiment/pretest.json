@@ -2,19 +2,37 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "tellegen's theorem is applicable to which type of network?",
+      "question": "This is a Sample Question 1?",
       "answers": {
-        "a": "short answer ",
+        "a": "answer1",
+        "b": "answer2",
+        "c": "answer3",
+        "d": "answer4"
       },
-      "correctAnswer": "the network should satisfied Kvl and KCL",
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "Tellegens theorem is independent of ??",
+      "question": "This is a Sample Question 2?",
       "answers": {
-        "a": short answer",
+        "a": "answer1",
+        "b": "answer2",
+        "c": "answer3",
+        "d": "answer4"
       },
-      "correctAnswer": "Element characteristics (linear and non linear)",
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "c",
       "difficulty": "beginner"
     }
   ]
