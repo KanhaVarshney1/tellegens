@@ -1,1 +1,1 @@
-Tellegen's theorem
+Verification of Tellegen's theorem
