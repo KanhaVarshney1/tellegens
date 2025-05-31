@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #  Theory for Verification of Tellegen's Theorem 
 
 ## Introduction
@@ -22,7 +21,7 @@ In this virtual lab, you will:
    - **Case 1**: Both \( V1 \) and \( V2 \) are active (( S1 \) and \( S2 \) on "Power").
    - **Case 2**: Only \( V1 \) is active (\( S1 \) on "Power," \( S2 \) on "Short").
    - **Case 3**: Only \( V2 \) is active (\( S1 \) on "Short," \( S2 \) on "Power").
-3. Measure currents (\( I1 \), \( I2 \), \( I_{R3} \)) and voltage (\( V_ \)) using virtual meters.
+3. Measure currents (\( I1 \), \( I2 \), \( I_{R3} \)) and voltage ( V_\) using virtual meters.
 4. Calculate power for each component and check if the total power is zero.
 
 ## Key Concepts
@@ -55,6 +54,3 @@ In this virtual lab, you will:
 - Tellegen’s Theorem proves energy conservation, a core idea in circuits.
 
 By completing this experiment, you will understand how power balances in a circuit and how Tellegen’s Theorem applies in practice.
-=======
-### write theory here 
->>>>>>> 686b5fb23c3bf8b542920142824079f67ec376b0
