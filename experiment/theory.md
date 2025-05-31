@@ -5,9 +5,8 @@ Tellegen's Theorem is a key concept in electrical circuits that shows the total 
 
 ## What is Tellegen's Theorem?
 Tellegen's Theorem states that in any electrical circuit, the sum of power absorbed or delivered by all components is zero. Mathematically:
-$$
-\sum (v_k \cdot i_k) = 0
-$$
+
+Σ(v<sub>k</sub> \.i<sub>k</sub>) = 0
 
 - \( v<sub>k</sub> \)  : Voltage across a component.
 - \( i<sub>k</sub> \): Current through the component.
