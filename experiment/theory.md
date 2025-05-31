@@ -8,7 +8,8 @@ Tellegen's Theorem states that in any electrical circuit, the sum of power absor
 $$
 \sum (v_k \cdot i_k) = 0
 $$
-v<sub>k</sub>  : Voltage across a component.
+
+- \( v<sub>k</sub> \)  : Voltage across a component.
 - \( i<sub>k</sub> \): Current through the component.
 - Power (\( v<sub>k</sub> . i<sub>k</sub> \)): Positive for components that use power (e.g., resistors) and negative for components that supply power (e.g., voltage sources).
 
@@ -21,7 +22,7 @@ In this virtual lab, you will:
    - **Case 1**: Both \( V1 \) and \( V2 \) are active (( S1 \) and \( S2 \) on "Power").
    - **Case 2**: Only \( V1 \) is active (\( S1 \) on "Power," \( S2 \) on "Short").
    - **Case 3**: Only \( V2 \) is active (\( S1 \) on "Short," \( S2 \) on "Power").
-3. Measure currents (\( I1 \), \( I2 \), \( I_{R3} \)) and voltage ( V_\) using virtual meters.
+3. Measure currents (\( I1 \), \( I2 \), \( I{R3} \)) and voltage ( V\) using virtual meters.
 4. Calculate power for each component and check if the total power is zero.
 
 ## Key Concepts
@@ -30,19 +31,19 @@ In this virtual lab, you will:
   - For voltage sources: Power supplied = \( V.I \) (sign depends on current direction).
 - **Cases**:
   - **Case 1**: Both sources are on, so currents and voltages depend on both \( V1 \) and \( V2 \).
-  - **Case 2**: \( V2 \) is shorted (\( V2 = 0 \)), so only \( V1 \) affects the circuit.
-  - **Case 3**: \( V1 \) is shorted (\( V1 = 0 \)), so only \( V2 \) affects the circuit.
+  - **Case 2**: \( V2 \) is shorted \( V2 = 0 \), so only \( V1 \) affects the circuit.
+  - **Case 3**: \( V1 \) is shorted \( V1 = 0 \), so only \( V2 \) affects the circuit.
 - **Switches**:
   - "Power": Connects the voltage source to the circuit.
   - "Short": Removes the voltage source by short-circuiting it.
 - **Meters**:
   - Ammeters (\( A1 \), \( A2 \)) measure currents \( I1 \) and \( I2 \).
-  - Voltmeter (\( MC \)) measures voltage across a specific point.
+  - Voltmeter \( MC \) measures voltage across a specific point.
 
 
 
 ## Expected Results
-- For each case, the sum of powers (\( P1 + P2 + P3 + PV1 + PV2 \)) should be zero (or very close due to small calculation errors).
+- For each case, the sum of powers \( P1 + P2 + P3 + PV1 + PV2 \) should be zero (or very close due to small calculation errors).
 - Resistor powers (\( P1 \), \( P2 \), \( P3 \)) are negative, showing they consume power.
 - Voltage source powers (\( PV1 \), \( PV2 \)) may be positive or negative based on current flow.
 - The observation table will show power values for all three cases, confirming Tellegen’s Theorem.
