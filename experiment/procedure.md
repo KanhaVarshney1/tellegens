@@ -1,4 +1,4 @@
-### Procedure
+
 
 ## Steps in the Experiment
 1. *Set Values*: Enter values for \( V1 \), \( V2 \), \( R1 \), \( R2 \), and \( R3 \) (e.g., \( V1 = 220V \), \( V2 = 110V \), \( R1 = 100Ω \), \( R2 = 150Ω \), \( R3 = 200Ω \)). Ensure resistors are greater than 0.

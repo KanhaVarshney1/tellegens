@@ -1,4 +1,4 @@
-### References
+
 1. Hayt, W. H., Kemmerly, J. E., & Durbin, S. M. (2018). *Engineering Circuit Analysis* (9th ed.). McGraw-Hill Education.  
    - This textbook explains Tellegen's Theorem and its link to Kirchhoff’s laws, with examples suitable for students learning circuit analysis.
 
